@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Amiri+Quran&family=Noto+Nastaliq+Urdu:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold-primary: #C9A84C;
+  --color-gold-light: #F0D080;
+  --color-gold-deep: #8B6914;
+  --color-midnight-ink: #0A0A14;
+  --color-deep-navy: #0D1B3E;
+  --color-glass-white: rgba(255, 255, 255, 0.06);
+  --color-glass-border: rgba(201, 168, 76, 0.18);
+  --color-emerald-accent: #1B5E3B;
+  --color-emerald-light: #2E8B57;
+  --color-parchment: #F5EDD6;
+  --color-calligraphy: #FFF8E7;
+
+  --font-amiri: "Amiri", serif;
+  --font-arabic: "Noto Naskh Arabic", serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-quran: "Amiri Quran", "Noto Naskh Arabic", serif;
+  --font-nastaleeque: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-midnight-ink text-parchment font-inter min-h-screen overflow-x-hidden selection:bg-gold-primary/30 selection:text-gold-light;
+  }
+
+  body.theme-daytime {
+    --color-midnight-ink: #FAFAF8;
+    --color-deep-navy: #F3F4F6;
+    --color-parchment: #1F2937;
+    --color-calligraphy: #111827;
+    --color-glass-white: rgba(0, 0, 0, 0.03);
+    --color-glass-border: rgba(201, 168, 76, 0.3);
+    --color-gold-light: #B8860B; /* darker gold for better contrast on light bg */
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-glass-white backdrop-blur-xl border border-glass-border shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+  body.theme-daytime .glass-panel {
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.05)];
+  }
+  .text-glow {
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  }
+  body.theme-daytime .text-glow {
+    text-shadow: none;
+  }
+}
